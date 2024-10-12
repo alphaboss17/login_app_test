@@ -1,195 +1,179 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_application1/forgot_password.dart';
+import 'package:my_flutter_application1/login_screen.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _SignUpScreenState createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  bool _isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Form(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const Text(
-                "Create an\nAccount",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(10)),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      hintText: "Username or Email",
-                      hintStyle: TextStyle(color: Colors.white, fontSize: 16),
-                      prefixIcon: Icon(
-                        Icons.person,
-                      )),
-                ),
-              ),
-              const SizedBox(
-                height: 29,
-              ),
-              Container(
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(10)),
-                child: TextFormField(
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Password",
-                    hintStyle: TextStyle(color: Colors.white, fontSize: 16),
-                    prefixIcon: Icon(
-                      Icons.lock,
-                    ),
-                    suffixIcon: Icon(Icons.visibility),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 29,
-              ),
-              Container(
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(10)),
-                child: TextFormField(
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Confirm Password",
-                    hintStyle: TextStyle(color: Colors.white, fontSize: 16),
-                    prefixIcon: Icon(
-                      Icons.lock,
-                    ),
-                    suffixIcon: Icon(Icons.visibility),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 19,
-              ),
-              const Text(
-                "By clicking the Register button, you agree to\nthe public offer",
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w100,
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      backgroundColor: const Color.fromARGB(255, 19, 18, 18),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          // child: Container(
+          //   decoration: const BoxDecoration(           Need this line of code for a background image.....
+          //     image: DecorationImage(
+          //       image: AssetImage('assets/doodle.png'),
+          //       fit: BoxFit.cover
+          //     ),
+          //   ),
+          child: Form(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text(
-                    "Register",
+                    "Create an\nAccount",
                     style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                      fontSize: 20,
+                        color: Colors.white,
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 135,
+                          width: 135,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.grey,
+                            image: DecorationImage(
+                              image: AssetImage('assets/person.jpg'),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: const Color(0xFF362358),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Name",
+                          hintStyle:
+                              TextStyle(color: Colors.black, fontSize: 12),
+                          prefixIcon: Icon(
+                            Icons.person,
+                            color: Colors.black,
+                          )),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: const Color(0xFF362358),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Email",
+                          hintStyle:
+                              TextStyle(color: Colors.black, fontSize: 12),
+                          prefixIcon: Icon(
+                            Icons.person,
+                            color: Colors.black,
+                          )),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: const Color(0xFF362358),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: TextFormField(
+                      obscureText: !_isPasswordVisible, // Toggle visibility
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Password",
+                        hintStyle:
+                            const TextStyle(color: Colors.black, fontSize: 12),
+                        prefixIcon: const Icon(
+                          Icons.lock,
+                          color: Colors.black,
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _isPasswordVisible
+                                ? Icons.visibility // Show icon
+                                : Icons.visibility_off, // Hide icon
+                            color: Colors.black,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _isPasswordVisible = !_isPasswordVisible;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => const ForgotPassword()));
-                    },
-                    child: Container(
-                      height: 50,
-                      width: 80,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.red),
-                      child: const Center(
-                        child: Icon(
-                          Icons.arrow_forward,
-                          color: Colors.white,
+                              builder: (context) => const LoginScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: const Color(0xFF362358), // Text color
+                        minimumSize: const Size(200, 60),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(30), // Rounded corners
+                        ),
+                      ),
+                      child: const Text(
+                        "Register",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
-              const SizedBox(
-                height: 50,
-              ),
-              const Center(
-                child: Text(
-                  "sign in with",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w100,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 40,
-                      width: 70,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.grey,
-                        image: DecorationImage(
-                          image: AssetImage("google_logo.jpg"),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 40,
-                      width: 70,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.grey,
-                        image: DecorationImage(
-                          image: AssetImage("apple_logo.png"),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 40,
-                      width: 70,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.grey,
-                        image: DecorationImage(
-                          image: AssetImage("facebook_logo.png"),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
+            ),
           ),
         ),
       ),
